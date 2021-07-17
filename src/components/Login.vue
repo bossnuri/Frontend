@@ -44,7 +44,7 @@
                         >Enter your personal details and become healthy with us!</h3>
                       </v-card-text>
                       <div class="text-center">
-                        <v-btn rounded outlined dark @click="step++">SIGN UP</v-btn>
+                        <v-btn rounded outlined dark @click="step++" to="/signup">SIGN UP</v-btn>
                       </div>
                     </v-col>
                   </v-row>
