@@ -94,7 +94,7 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mb-10">
-                        <v-btn rounded color="teal accent-3" dark>SIGN UP</v-btn>
+                        <v-btn rounded color="teal accent-3" dark to="/stat">SIGN UP</v-btn>
                       </div>
                     </v-col>
                   </v-row>
