@@ -33,7 +33,7 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mb-10">
-                        <v-btn rounded color="teal accent-3" dark>SIGN IN</v-btn>
+                        <v-btn rounded color="teal accent-3" dark to="/home">SIGN IN</v-btn>
                       </div>
                     </v-col>
                     <v-col cols="12" md="4" class="teal accent-3">
