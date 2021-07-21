@@ -55,7 +55,7 @@ router.beforeEach(async (to, from, next) => {
   let isLoggedIn = store.state.isLoggedIn;
   // make sure if user is logged, user will not be able to see login page
   if (to.name === "Login" && isLoggedIn) {
-    next({ name: "Home" });
+    next( {name: "Home"});
   }
   // if the name of the router is not Login, it needs authorization to access the page
   if (to.name !== "Login" && !isLoggedIn) {
