@@ -100,17 +100,13 @@ export default {
   }),
   methods: {
     async submit() {
-      if (this.$refs.form.validate()) {
+      if(this.$refs.form.validate()) {
         // submit to backend to authenticate
         let formData = new FormData();
         formData.append("username", this.username);
-        formData.append("password", this.password);
+        formData.append("username", this.password);
 
-        let response = await Vue.axios.post("/api/login", formData);
-
-        if (response.data.success) {
-          this.$router.push({ name: "/" });
-        }
+        await Vue.axios.post("/api/login", formData);
       }
     },
     // reset() {
@@ -122,3 +118,10 @@ export default {
   },
 };
 </script>
+
+<!--<style scoped>-->
+<!--.fill-height {-->
+<!--  background: url('../assets/logo.png');-->
+<!--  background-size: cover;-->
+<!--}-->
+<!--</style>-->
