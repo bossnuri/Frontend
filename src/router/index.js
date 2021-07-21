@@ -5,6 +5,7 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 // import UserStat from "../components/UserStat";
 // import Summary from "../components/Summary";
+import Exercise from "@/components/Exercise";
 import Home from "../components/Home";
 import Create from "../components/Create";
 import VueClock from '@dangvanthanh/vue-clock';
@@ -52,6 +53,11 @@ const routes = [
     path: "/create",
     name: "Create",
     component: Create
+  },
+  {
+    path: "/exercise",
+    name: "Exercise",
+    component: Exercise
   }
 ];
 
