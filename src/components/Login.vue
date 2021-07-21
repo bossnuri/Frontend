@@ -100,7 +100,7 @@ export default {
   }),
   methods: {
     async submit() {
-      if(this.$refs.form.validate()) {
+      if (this.$refs.form.validate()) {
         // submit to backend to authenticate
         let formData = new FormData();
         formData.append("username", this.username);
@@ -122,10 +122,3 @@ export default {
   },
 };
 </script>
-
-<!--<style scoped>-->
-<!--.fill-height {-->
-<!--  background: url('../assets/logo.png');-->
-<!--  background-size: cover;-->
-<!--}-->
-<!--</style>-->

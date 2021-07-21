@@ -11,19 +11,29 @@
                     <v-col cols="12" md="4" class="teal accent-3">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">Welcome Back!</h1>
-                        <h3
-                          class="text-center my-4"
-                        >To keep connected with us, please sign in!</h3>
+                        <h3 class="text-center my-4">
+                          To keep connected with us, please sign in!
+                        </h3>
                       </v-card-text>
                       <div class="text-center">
-                        <v-btn rounded outlined dark @click="step--" to="/">Sign in</v-btn>
+                        <v-btn rounded outlined dark @click="step--" to="/"
+                          >Sign in</v-btn
+                        >
                       </div>
                     </v-col>
                     <v-col cols="12" md="8">
                       <v-card-text class="mt-12">
-                        <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
+                        <h1
+                          class="
+                            text-center
+                            display-2
+                            teal--text
+                            text--accent-3
+                          "
+                        >
+                          Create Account
+                        </h1>
                         <v-form>
-
                           <v-select
                             :items="['Male', 'Female']"
                             label="Gender"
@@ -59,14 +69,14 @@
                             type="text"
                             color="teal accent-3"
                           />
-                           <v-text-field
-                             id="Weight"
-                             label="Weight"
-                             name="weight"
-                             prepend-icon="opacity"
-                             type="text"
-                             color="teal accent-3"
-                           />
+                          <v-text-field
+                            id="Weight"
+                            label="Weight"
+                            name="weight"
+                            prepend-icon="opacity"
+                            type="text"
+                            color="teal accent-3"
+                          />
                           <v-text-field
                             id="Height"
                             label="Height"
@@ -94,7 +104,9 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mb-10">
-                        <v-btn rounded color="teal accent-3" dark to="/stat">SIGN UP</v-btn>
+                        <v-btn rounded color="teal accent-3" dark to="/stat"
+                          >SIGN UP</v-btn
+                        >
                       </div>
                     </v-col>
                   </v-row>
@@ -110,10 +122,8 @@
 
 <script>
 export default {
-  name: "Signup"
+  name: "Signup",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
