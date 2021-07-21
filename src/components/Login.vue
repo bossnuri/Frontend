@@ -104,9 +104,13 @@ export default {
         // submit to backend to authenticate
         let formData = new FormData();
         formData.append("username", this.username);
-        formData.append("username", this.password);
+        formData.append("password", this.password);
 
-        await Vue.axios.post("/api/login", formData);
+        let response = await Vue.axios.post("/api/login", formData);
+
+        if (response.data.success) {
+          this.$router.push({ name: "/" });
+        }
       }
     },
     // reset() {
