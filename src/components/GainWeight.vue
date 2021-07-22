@@ -9,7 +9,6 @@
               <v-icon>home</v-icon>
             </v-btn>
           </v-app-bar>
-
         </nav>
       </template>
       <v-container class="fill-height" fluid>
@@ -22,8 +21,15 @@
                     <v-col cols="12" md="8">
                       <v-card-text class="mt-5">
                         <h1
-                          class="text-center display-2 teal--text text--accent-3"
-                        >How much calories do you consume a day ?</h1>
+                          class="
+                            text-center
+                            display-2
+                            teal--text
+                            text--accent-3
+                          "
+                        >
+                          How much calories do you consume a day ?
+                        </h1>
                         <v-form>
                           <v-text-field
                             label="Calories"
@@ -41,12 +47,20 @@
                     <v-col cols="12" md="4" class="teal accent-3">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">New User?</h1>
-                        <h3
-                          class="text-center my-4"
-                        >Enter your personal details and become healthy with us!</h3>
+                        <h3 class="text-center my-4">
+                          Enter your personal details and become healthy with
+                          us!
+                        </h3>
                       </v-card-text>
                       <div class="text-center">
-                        <v-btn rounded outlined dark @click="step++" to="/signup">SIGN UP</v-btn>
+                        <v-btn
+                          rounded
+                          outlined
+                          dark
+                          @click="step++"
+                          to="/signup"
+                          >SIGN UP</v-btn
+                        >
                       </div>
                     </v-col>
                   </v-row>
@@ -60,8 +74,8 @@
   </v-app>
 </template>
 <style>
-  main {
-    background-image: url("https://images.jhtassets.com/38434b12264cf3249b6b7ee58bdc73df5bfdb655/");
-    background-size: cover;
-  }
+main {
+  background-image: url("https://images.jhtassets.com/38434b12264cf3249b6b7ee58bdc73df5bfdb655/");
+  background-size: cover;
+}
 </style>

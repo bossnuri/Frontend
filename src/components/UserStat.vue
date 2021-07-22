@@ -56,8 +56,8 @@
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">Your Goal</h1>
                       </v-card-text>
-                      <div class="text-center">
-                        <v-btn rounded outlined dark @click="step++">GAIN WEIGHT</v-btn>
+                      <div class="text-center my-5">
+                        <v-btn rounded outlined dark @click="step++" to="/summary">GAIN WEIGHT</v-btn>
                       </div>
                       <div class="text-center my-5">
                         <v-btn rounded outlined dark @click="step++">STAY HEALTHY</v-btn>
