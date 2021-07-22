@@ -24,9 +24,78 @@
                     <v-col cols="12" md="4" class="teal accent-3">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1 my-7">CHOOSE DATE</h1>
-                        <div class="text-md-center ">
-                          <date-picker v-model="time2" type="datetime"></date-picker>
-                        </div>
+                        <template>
+                          <v-container>
+                            <v-row>
+                              <v-col
+                                cols="12"
+                                lg="20"
+                              >
+                                <v-menu
+                                  ref="menu1"
+                                  v-model="menu1"
+                                  :close-on-content-click="false"
+                                  transition="scale-transition"
+                                  offset-y
+                                  max-width="290px"
+                                  min-width="auto"
+                                >
+                                  <template v-slot:activator="{ on, attrs }">
+                                    <v-text-field
+                                      v-model="dateFormatted"
+                                      label="Date"
+                                      hint="MM/DD/YYYY"
+                                      persistent-hint
+                                      prepend-icon="mdi-calendar"
+                                      v-bind="attrs"
+                                      @blur="date = parseDate(dateFormatted)"
+                                      v-on="on"
+                                    ></v-text-field>
+                                  </template>
+                                  <v-date-picker
+                                    v-model="date"
+                                    no-title
+                                    @input="menu1 = false"
+                                  ></v-date-picker>
+                                </v-menu>
+<!--                                <p>Date in ISO format: <strong>{{ date }}</strong></p>-->
+<!--                              </v-col>-->
+
+<!--                              <v-col-->
+<!--                                cols="12"-->
+<!--                                lg="6"-->
+<!--                              >-->
+<!--                                <v-menu-->
+<!--                                  v-model="menu2"-->
+<!--                                  :close-on-content-click="false"-->
+<!--                                  transition="scale-transition"-->
+<!--                                  offset-y-->
+<!--                                  max-width="290px"-->
+<!--                                  min-width="auto"-->
+<!--                                >-->
+<!--                                  <template v-slot:activator="{ on, attrs }">-->
+<!--                                    <v-text-field-->
+<!--                                      v-model="computedDateFormatted"-->
+<!--                                      label="Date (read only text field)"-->
+<!--                                      hint="MM/DD/YYYY format"-->
+<!--                                      persistent-hint-->
+<!--                                      prepend-icon="mdi-calendar"-->
+<!--                                      readonly-->
+<!--                                      v-bind="attrs"-->
+<!--                                      v-on="on"-->
+<!--                                    ></v-text-field>-->
+<!--                                  </template>-->
+<!--                                  <v-date-picker-->
+<!--                                    v-model="date"-->
+<!--                                    no-title-->
+<!--                                    @input="menu2 = false"-->
+<!--                                  ></v-date-picker>-->
+<!--                                </v-menu>-->
+<!--                                <p>Date in ISO format: <strong>{{ date }}</strong></p>-->
+                              </v-col>
+                            </v-row>
+                          </v-container>
+                        </template>
                       </v-card-text>
 
                     </v-col>
@@ -34,23 +103,11 @@
                       <v-card-text class="mt-12">
                         <h1 class="text-center display-2 teal--text text--accent-3 mb-10">Create New Activity</h1>
                         <v-form class="my-10">
-
-
-
-<!--                          <v-text-field-->
-
-<!--                            id="Weight"-->
-<!--                            label="Weight"-->
-<!--                            name="weight"-->
-<!--                            prepend-icon="opacity"-->
-<!--                            type="text"-->
-<!--                            color="teal accent-3"-->
-<!--                          />-->
                           <v-text-field
                             id="Food"
                             label="Food"
                             name="food"
-                            prepend-icon="beer"
+                            prepend-icon="fas fa-hamburger"
                             type="text"
                             color="teal accent-3"
                           />
@@ -58,7 +115,7 @@
                             id="CaloriesConsume"
                             label="Calories Consume"
                             name="calories consume"
-                            prepend-icon="person"
+                            prepend-icon="fas fa-fire-alt"
                             type="text"
                             color="teal accent-3"
                           />
@@ -83,17 +140,39 @@
 
 </style>
 <script>
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
-
 export default {
-  components: { DatePicker },
-  data() {
-    return {
-      time1: null,
-      time2: null,
-      time3: null,
-    };
+  data: vm => ({
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+    menu1: false,
+    menu2: false,
+  }),
+
+  // computed: {
+  //   computedDateFormatted () {
+  //     return this.formatDate(this.date)
+  //   },
+  // },
+
+  watch: {
+    date () {
+      this.dateFormatted = this.formatDate(this.date)
+    },
   },
-};
+
+  methods: {
+    formatDate (date) {
+      if (!date) return null
+
+      const [year, month, day] = date.split('-')
+      return `${month}/${day}/${year}`
+    },
+    parseDate (date) {
+      if (!date) return null
+
+      const [month, day, year] = date.split('/')
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+    },
+  },
+}
 </script>
